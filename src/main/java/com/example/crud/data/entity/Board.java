@@ -1,5 +1,6 @@
 package com.example.crud.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -18,16 +19,25 @@ public class Board {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pid;
 
-    @Column(nullable = false)
+    @Column
     private String name;
 
-    @Column(nullable = false, unique = true)
+    @Column
     private String email;
 
-    @Column(nullable = false)
+    @Column
+    private String number;
+
+    @Column
+    private String password;
+
+    @Column
+    private String profile;
+
+    @Column
     private String title;
 
-    @Column(nullable = false)
+    @Column
     private String content;
 
     @Column
@@ -35,4 +45,9 @@ public class Board {
 
     @Column
     private LocalDateTime updatedAt;
+
+    @OneToOne(mappedBy = "board")
+    @ToString.Exclude
+    private BoardDetail boardDetail;
+
 }

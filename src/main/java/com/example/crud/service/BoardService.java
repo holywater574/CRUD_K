@@ -1,4 +1,4 @@
-package com.example.crud.data.service;
+package com.example.crud.service;
 
 import com.example.crud.data.dto.request.ChangeNameRequestDto;
 import com.example.crud.data.dto.response.ResponseBoardDto;

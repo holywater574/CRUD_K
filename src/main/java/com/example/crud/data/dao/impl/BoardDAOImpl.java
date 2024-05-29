@@ -23,7 +23,7 @@ public class BoardDAOImpl implements BoardDAO {
     public Board insertBoard(Board board) {
         Board result = boardRepository.save(board);
 
-        return null;
+        return result;
     }
 
     @Override

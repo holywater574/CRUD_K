@@ -1,11 +1,11 @@
-package com.example.crud.data.service.impl;
+package com.example.crud.service.impl;
 
 import com.example.crud.data.dao.BoardDAO;
 import com.example.crud.data.dto.request.ChangeNameRequestDto;
 import com.example.crud.data.dto.request.RequestBoardDto;
 import com.example.crud.data.dto.response.ResponseBoardDto;
 import com.example.crud.data.entity.Board;
-import com.example.crud.data.service.BoardService;
+import com.example.crud.service.BoardService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +34,9 @@ public class BoardServiceImpl implements BoardService {
             responseBoardDto.setPid(board.getPid());
             responseBoardDto.setEmail(board.getEmail());
             responseBoardDto.setName(board.getName());
-            responseBoardDto.setContent(board.getContent());
-            responseBoardDto.setTitle(board.getTitle());
+            responseBoardDto.setNumber(board.getNumber());
+            responseBoardDto.setProfile(board.getProfile());
+            responseBoardDto.setPassword(board.getPassword());
 
             return responseBoardDto;
         } catch (Exception e) {
@@ -50,8 +51,9 @@ public class BoardServiceImpl implements BoardService {
             Board board = new Board();
             board.setEmail(requestBoardDto.getEmail());
             board.setName(requestBoardDto.getName());
-            board.setContent(requestBoardDto.getContent());
-            board.setTitle(requestBoardDto.getTitle());
+            board.setNumber(requestBoardDto.getNumber());
+            board.setProfile(requestBoardDto.getProfile());
+            board.setPassword(requestBoardDto.getPassword());
             board.setCreateAt(LocalDateTime.now());
             board.setUpdatedAt(LocalDateTime.now());
 
@@ -61,8 +63,9 @@ public class BoardServiceImpl implements BoardService {
             responseBoardDto.setPid(savedBoard.getPid());
             responseBoardDto.setEmail(savedBoard.getEmail());
             responseBoardDto.setName(savedBoard.getName());
-            responseBoardDto.setContent(savedBoard.getContent());
-            responseBoardDto.setTitle(savedBoard.getTitle());
+            responseBoardDto.setNumber(savedBoard.getNumber());
+            responseBoardDto.setProfile(savedBoard.getProfile());
+            responseBoardDto.setPassword(savedBoard.getPassword());
 
             return responseBoardDto;
         } catch (Exception e) {
@@ -80,8 +83,9 @@ public class BoardServiceImpl implements BoardService {
             responseBoardDto.setPid(findBoard.getPid());
             responseBoardDto.setEmail(findBoard.getEmail());
             responseBoardDto.setName(findBoard.getName());
-            responseBoardDto.setContent(findBoard.getContent());
-            responseBoardDto.setTitle(findBoard.getTitle());
+            responseBoardDto.setNumber(findBoard.getNumber());
+            responseBoardDto.setPassword(findBoard.getPassword());
+            responseBoardDto.setProfile(findBoard.getProfile());
 
             return responseBoardDto;
         } catch (Exception e) {
