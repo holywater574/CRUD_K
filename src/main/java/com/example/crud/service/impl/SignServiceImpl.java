@@ -41,7 +41,7 @@ public class SignServiceImpl implements SignService {
                     .email(signUpDto.getEmail())
                     .number(signUpDto.getNumber())
                     .password(passwordEncoder.encode(signUpDto.getPassword()))
-                    .name(signUpDto.getName())
+                    .username(signUpDto.getName())
                     .roles(Collections.singletonList("ROLE_ADMIN"))
                     .build();
         }else{
@@ -49,7 +49,7 @@ public class SignServiceImpl implements SignService {
                     .email(signUpDto.getEmail())
                     .number(signUpDto.getNumber())
                     .password(passwordEncoder.encode(signUpDto.getPassword()))
-                    .name(signUpDto.getName())
+                    .username(signUpDto.getName())
                     .roles(Collections.singletonList("ROLE_BABYLION"))
                     .build();
         }

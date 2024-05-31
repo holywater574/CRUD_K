@@ -1,5 +1,6 @@
 package com.example.crud.data.entity;
 
+import com.example.crud.data.RoleType;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -30,13 +31,18 @@ public class User implements UserDetails {
     private String email;
 
     @Column(nullable = false)
-    private String name;
+    private String username;
 
     @Column(nullable = false)
     private String password;
 
     @Column(nullable = false)
     private String number;
+
+    private String oauth;
+
+    @Enumerated(EnumType.STRING)
+    private RoleType role;
 
     @ElementCollection(fetch = FetchType.EAGER)
     @Builder.Default
@@ -61,9 +67,7 @@ public class User implements UserDetails {
     }
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Override
-    public boolean isAccountNonExpired(){
-        return true;
-    }
+    public boolean isAccountNonExpired(){ return true; }
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Override
     public boolean isAccountNonLocked(){
